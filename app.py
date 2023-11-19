@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Dictionary för att lagra partiernas positioner på varje fråga
 party_positions = {
-    'Socialdemokraterna': [2, 2, 2, 1, 2, 2, 2, 1, 1, 2],
+    'Socialdemokraterna': [2, 3, 2, 1, 2, 2, 2, 1, 1, 2],
     'Moderaterna': [3, 1, 1, 3, 1, 2, 3, 2, 2, 2],
     'Sverigedemokraterna': [3, 2, 3, 2, 3, 3, 2, 3, 2, 1],
     'Centerpartiet': [1, 1, 1, 2, 1, 1, 2, 2, 2, 2],
