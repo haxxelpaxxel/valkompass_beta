@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Lantbruksvalkompassen - Ditt resultat</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Lantbruksvalkompassen - Ditt resultat</h1>
+        <p>Ditt resultat visar att du är närmast <strong>{{ closest_party }}</strong>.</p>
+        <p>Detta baseras på dina svar på de politiska frågorna.</p>
+        <p><a href="/">Gör testet igen</a></p>
+    </div>
+</body>
+</html>

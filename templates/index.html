@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Valkompass</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Lantbruksvalkompassen</h1>
+        <form action="{{ url_for('calculate_results') }}" method="post">
+            {% for key, question in questions.items() %}
+                <div class="question">
+                    <strong>{{ question['text'] }}</strong>
+                    <hr>
+                    {% for option, value in question['options'].items() %}
+                        <div class="option-container" onclick="selectOption(this)">
+                            <input type="radio" name="{{ key }}" value="{{ value|string }}" id="{{ 'option_' + value|string + '_' + key }}">
+                            <label for="{{ 'option_' + value|string + '_' + key }}">{{ option }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit">Skicka</button>
+        </form>
+    </div>
+    <script>
+    function selectOption(element) {
+        // Rensa alla tidigare valda alternativ i samma fråga
+        var questionContainer = element.closest('.question');
+        var options = questionContainer.querySelectorAll('.option-container');
+        options.forEach(function (option) {
+            option.classList.remove('selected');
+        });
+
+        // Markera det valda alternativet
+        element.classList.add('selected');
+    }
+
+</script>
+
+
+</body>
+</html>
